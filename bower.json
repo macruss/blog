@@ -1,0 +1,29 @@
+{
+  "name": "blog",
+  "version": "0.0.0",
+  "homepage": "https://github.com/macruss/blog",
+  "authors": [
+    "Ruslan Makarenko <ruslan.makarenko@gmail.com>"
+  ],
+  "main": "index.html",
+  "moduleType": [
+    "globals"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.7",
+    "angular-route": "~1.4.7",
+    "angular-sanitize": "~1.4.7",
+    "angular-cookies": "~1.4.7",
+    "marked": "~0.3.5",
+    "angular-marked": "~0.0.21",
+    "jquery": "~2.1.4"
+  }
+}
