@@ -6,7 +6,11 @@ const stylus   = require('gulp-stylus');
 const tslint   = require('gulp-tslint');
 const clean    = require('gulp-clean');  
 const concat   = require('gulp-concat');
-const filesize = require('gulp-filesize'); 
+const filesize = require('gulp-filesize');
+const ngmin    = require('gulp-ngmin');
+const uglify    = require('gulp-uglify');
+const sourcemaps    = require('gulp-sourcemaps');
+const rename    = require('gulp-rename');
 
 
 var path = {
@@ -21,8 +25,8 @@ gulp.task('webserver', function() {
     }));
 });
 
-gulp.task('clean-scripts', function () {
-  return gulp.src(path.dist + 'app/**/*.js', {read: false})
+gulp.task('clean', function () {
+  return gulp.src(path.dist + 'js/', {read: false})
     .pipe(clean());
 });
 
@@ -49,7 +53,14 @@ gulp.task('tslint', function(){
 gulp.task('compile', function(){
   gulp.src(path.src + '*.ts')
     .pipe(tsc())
-    .pipe(gulp.dest(path.dist));
+    .pipe(concat('main.js'))
+    .pipe(gulp.dest(path.dist + 'js/'))
+    .pipe(rename('main.min.js'))
+    .pipe(sourcemaps.init())
+      .pipe(ngmin())
+      .pipe(uglify())
+    .pipe(sourcemaps.write('./'))
+    .pipe(gulp.dest(path.dist + 'js/'));
 });
 
 gulp.task('templates', function() {
