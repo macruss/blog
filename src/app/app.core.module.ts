@@ -14,5 +14,5 @@
        * 3rd Party Modules
        */
         'hc.marked'
-      ]);
+     ]);
 })();

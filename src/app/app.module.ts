@@ -15,5 +15,5 @@
       'app.sitesettings',
       'app.users',
       'app.usersettings',
-      ]);
+     ]);
 })();
