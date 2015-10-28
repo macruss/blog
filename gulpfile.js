@@ -6,7 +6,6 @@ const stylus   = require('gulp-stylus');
 const tslint   = require('gulp-tslint');
 const clean    = require('gulp-clean');  
 const concat   = require('gulp-concat');
-const filesize = require('gulp-filesize');
 const ngmin    = require('gulp-ngmin');
 const uglify    = require('gulp-uglify');
 const sourcemaps    = require('gulp-sourcemaps');
