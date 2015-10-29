@@ -1,25 +1,27 @@
 /// <reference path="../../typings/tsd.d.ts" />
 interface IAppCookies {
-  userId: string;
+    userId: string;
 }
 
 ((): void => {
-  'use strict';
+    'use strict';
 
-  angular
-    .module('app')
-    .run(run);
+    angular
+        .module('app')
+        .run(run);
 
-  run.$inject = [
-    '$rootScope',
-    '$cookies'
-  ];
+    run.$inject = [
+        '$rootScope',
+        '$cookies',
+        'currentUser'
+    ];
 
-  function run($rootScope: ng.IRootScopeService,
-    $cookies: IAppCookies): void {
-    $rootScope.$on('$routChangeError', (): void => {
-
-    });
-    var userId = $cookies.userId;
-  }
+    function run(
+        $rootScope: ng.IRootScopeService,
+        $cookies: IAppCookies,
+        currentUser: ICurrentUser): void {
+        $rootScope.$on('$routChangeError', (): void => {
+        });
+        currentUser.userId = $cookies.userId;
+    }
 })();
